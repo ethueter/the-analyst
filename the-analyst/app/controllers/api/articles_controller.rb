@@ -1,12 +1,12 @@
 class Api::ArticlesController < ApplicationController
-    before_action: authorize!, only: [:create]
+    before_action :authorize!, only: [:create]
 
     def index
         @articles = Article.all 
         render json: @articles, status: :successful
     end
 
-    def create(article_params)
+    def create
         @article = Article.new(article_params)
         if @article.save
             render json: @article, status: :successful
@@ -21,7 +21,7 @@ class Api::ArticlesController < ApplicationController
 
     def article_params
     
-        params.permit[:title, :author, :content, :article_url, :image_url, :source_url]
+        params.permit(:title, :author, :content, :article_url, :image_url, :source_url, :source_id)
     
     end
 end

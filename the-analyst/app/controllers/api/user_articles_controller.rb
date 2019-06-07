@@ -1,5 +1,5 @@
 class Api::UserArticlesController < ApplicationController
-    before_action: authorize!
+    before_action :authorize!
 
     def create
         @user_article = UserArticle.new(ua_params)

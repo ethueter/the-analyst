@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_200202) do
+ActiveRecord::Schema.define(version: 2019_06_07_132622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_200202) do
     t.string "article_url"
     t.string "image_url"
     t.string "source_url"
+    t.integer "source_id"
   end
 
   create_table "articles_users", id: false, force: :cascade do |t|
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_200202) do
     t.string "description"
     t.string "tagline"
     t.string "source_url"
+    t.string "image_url"
   end
 
   create_table "user_articles", force: :cascade do |t|
@@ -52,4 +54,5 @@ ActiveRecord::Schema.define(version: 2019_06_04_200202) do
     t.string "password_digest"
   end
 
+  add_foreign_key "articles", "sources"
 end
