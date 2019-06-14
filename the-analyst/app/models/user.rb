@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_secure_password
+    has_many :user_articles
     has_many :articles, through: :user_articles
 
     validates :username, presence: true, uniqueness: true
