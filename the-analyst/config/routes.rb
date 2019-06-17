@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resources :articles, only: [:index, :create, :update]
     resources :user_articles, only: [:index, :create, :update]
-    resources :sources, only: [:index, :create, :update]
+    resources :sources, only: [:index, :create, :update, :show]
     post '/login', to: 'sessions#create', as: 'login' 
 
   end
